@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uber</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- jsCalendar v1.4.5 Javascript and CSS from jsdelivr npm cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/simple-jscalendar@1.4.5/source/jsCalendar.min.js"
+        integrity="sha384-F3Wc9EgweCL3C58eDn9902kdEH6bTDL9iW2JgwQxJYUIeudwhm4Wu9JhTkKJUtIJ"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-jscalendar@1.4.5/source/jsCalendar.min.css"
+        integrity="sha384-CTBW6RKuDwU/TWFl2qLavDqLuZtBzcGxBXY8WvQ0lShXglO/DsUvGkXza+6QTxs0" crossorigin="anonymous">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+
+</head>
+
+<body class="max-w-[1440px] mx-auto w-full">
+    <!-- Nav -->
+    <nav class="bg-black text-white px-6 py-4 w-full">
+        <div class="flex items-center justify-between">
+            <div id="left-nav" class="flex gap-8 items-center">
+                <a href="#" class="text-2xl cursor-pointer">Uber</a>
+                <div class="hidden lg:flex gap-3 items-center">
+                    <a href="#" class="text-sm font-medium rounded-full px-3 py-2 hover:bg-[#282828]">Ride</a>
+                    <a href="#" class="text-sm font-medium rounded-full px-3 py-2 hover:bg-[#282828]">Drive</a>
+                    <a href="#" class="text-sm font-medium rounded-full px-3 py-2 hover:bg-[#282828]">Business</a>
+                    <button>
+                        <div id="aboutBtn" class="flex gap-3 items-center rounded-full px-3 py-2 hover:bg-[#282828]">
+                            <span class="font-medium text-sm">About</span>
+                            <i class="fa-solid fa-chevron-down text-xs font-bold  transition"></i>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            <div id="right-nav" class="flex gap-3 items-center">
+                <button class="hidden lg:flex gap-2 items-center rounded-full px-3 py-2 hover:bg-[#282828]">
+                    <i class="fa-sharp fa-solid fa-globe"></i>
+                    <span class="text-md font-medium">EN</span>
+                </button>
+                <a href="#" class="hidden lg:text-sm font-medium rounded-full px-3 py-2 hover:bg-[#282828]">Help</a>
+                <button class="text-sm font-medium rounded-full px-3 py-2 hover:bg-[#282828]">Log in</button>
+                <button class="bg-white text-black text-sm font-medium px-3 py-2 rounded-full">Sign up</button>
+            </div>
+        </div>
+
+    </nav>
+    <main class="relative">
+        <div id='aboutDiv' class="hidden absolute left-[330px] bg-white z-[9] max-w-[250px] w-full"
+        style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+        <ul class="flex flex-col">
+            <li class="hover:bg-gray-100 w-full px-4 py-2 group">
+                <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">About us</a>
+            </li>
+            <li class="hover:bg-gray-100 w-full px-4 py-2 group">
+                <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Our
+                    offerings</a>
+            </li>
+            <li class="hover:bg-gray-100 w-full px-4 py-2 group">
+                <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">How Uber
+                    works</a>
+            </li>
+            <li class="hover:bg-gray-100 w-full px-4 py-2 group">
+                <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Impact</a>
+            </li>
+            <li class="hover:bg-gray-100 w-full px-4 py-2 group">
+                <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Diversity,
+                    equity, and inclusion</a>
+            </li>
+            <li class="hover:bg-gray-100 w-full px-4 py-2 group">
+                <a href="#"
+                    class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Sustainability</a>
+            </li>
+            <button id="exploreBtn" class="relative hover:bg-gray-100 w-full px-4 py-2 group">
+                <div class="flex items-center justify-between">
+                    <span class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Explore</span>
+                    <i class="fa-solid fa-chevron-right text-[#a0a0a0] group-hover:text-black"></i>
+                </div>
+            </button>
+
+            <div id="citiesBtn"
+                class="hidden absolute top-[240px] left-[260px] bg-white max-w-[180px] w-full rounded-lg py-3"
+                style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+                <div class="flex items-center justify-between hover:bg-gray-100 px-4 group">
+                    <span class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Cities</span>
+                    <i class="fa-solid fa-chevron-right text-[#a0a0a0] group-hover:text-black"></i>
+                </div>
+            </div>
+
+            <div id="nearByCities"
+                class="hidden absolute top-[240px] left-[445px] bg-white py-3 max-w-[400px] rounded-lg"
+                style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+                <ul class="flex flex-col">
+                    <li class="hover:bg-gray-100 w-full px-4 py-2 group">
+                        <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Getting
+                            around New Delhi</a>
+                    </li>
+                    <li class="hover:bg-gray-100 w-full px-4 py-2 group">
+                        <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Getting
+                            around Hyderabad</a>
+                    </li>
+                    <li class="hover:bg-gray-100 w-full px-4 py-2 group">
+                        <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Getting
+                            around Chennai</a>
+                    </li>
+                    <li class="hover:bg-gray-100 w-full px-4 py-2 group">
+                        <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Getting
+                            around Kolkata</a>
+                    </li>
+                    <li class="hover:bg-gray-100 w-full px-4 py-2 group">
+                        <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Getting
+                            around Jaipur</a>
+                    </li>
+                    <li class="hover:bg-gray-100 w-full px-4 py-2 group">
+                        <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Getting
+                            around Pune City</a>
+                    </li>
+                    <li class="hover:bg-gray-100 w-full px-4 py-2 group">
+                        <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Getting
+                            around Mumbai</a>
+                    </li>
+                    <li class="hover:bg-gray-100 w-full px-4 py-2 group">
+                        <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Getting
+                            around Lucknow</a>
+                    </li>
+                    <li class="hover:bg-gray-100 w-full px-4 py-2 group">
+                        <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Getting
+                            around Thiruvananthapuram</a>
+                    </li>
+                    <li class="hover:bg-gray-100 w-full px-4 py-2 group">
+                        <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Getting
+                            around Bhubaneswar</a>
+                    </li>
+                </ul>
+            </div>
+
+            <li class="hover:bg-gray-100 w-full px-4 py-2 group">
+                <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Newsroom</a>
+            </li>
+            <li class="hover:bg-gray-100 w-full px-4 py-2 group">
+                <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Investor
+                    relations</a>
+            </li>
+            <li class="hover:bg-gray-100 w-full px-4 py-2 group">
+                <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Autonomous</a>
+            </li>
+            <li class="hover:bg-gray-100 w-full px-4 py-2 group">
+                <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Blog</a>
+            </li>
+            <li class="hover:bg-gray-100 w-full px-4 py-2 group">
+                <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Careers</a>
+            </li>
+        </ul>
+    </div>
+        <!-- Home -->
+        <section id="home"
+            class="relative bg-black lg:bg-white flex flex-col lg:flex-row gap-20 justify-between px-8 py-12  lg:px-16 lg:py-16 z-1">
+            <div id="left-home" class="lg:w-1/2">
+                <div class="space-y-6 mb-10">
+                    <h1
+                        class="text-[2.25rem] md:text-[2.75rem] lg:text-[3.25rem] leading-tight font-bold text-white lg:text-black">
+                        Go anywhere with Uber</h1>
+                    <p class="lg:hidden text-lg text-white font-normal">Request a ride, hop in, and go.</p>
+                    <div class="hidden lg:flex  items-center justify-between max-w-[200px]">
+                        <div class="flex flex-col justify-center">
+                            <div class="bg-[#e8e8e8] rounded-lg w-fit flex items-center p-3">
+                                <i class="fa-solid fa-car text-md"></i>
+                            </div>
+                            <p class="text-lg font-semibold">Ride</p>
+                        </div>
+                        <div class="flex flex-col space-y-2 justify-center pt-2 group">
+                            <img src="./Courier2.jpg" alt="courier" width="24px">
+                            <!-- <img src="./Package2.svg" alt="courier" width="24px" class="group-hover:opacity-90"> -->
+                            <p class="text-lg text-[#737373] font-semibold group-hover:text-black">Courier</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex gap-4 items-center bg-[#f3f3f3] rounded-lg px-4 py-3 max-w-[450px] w-full">
+                        <span class="bg-black max-w-15 max-h-15 rounded-full p-1"></span>
+                        <input type="text" placeholder="Pickup location"
+                            class="flex-grow bg-transparent text-lg outline-null text-gray-900">
+                        <i class="fas fa-location-arrow text-2xl"></i>
+                    </div>
+                    <div class="flex gap-4 items-center bg-[#f3f3f3] rounded-lg px-4 py-3 max-w-[450px] w-full">
+                        <span class="bg-black max-w-15 max-h-15 p-1"></span>
+                        <input type="text" placeholder="Dropoff location"
+                            class="flex-grow bg-transparent text-lg outline-null text-gray-900">
+                    </div>
+                    <div id="calendar" class="hidden absolute top-[120px] left-0 z-2 auto-jsCalendar "></div>
+                   
+
+                    <div class="hidden lg:flex gap-4 items-center max-w-[450px]">
+                        <button id="todayBtn"
+                            class="flex gap-4 items-center bg-[#f3f3f3] rounded-lg px-4 py-3 max-w-[218px] w-full">
+                            <img src="./Calendar.jpg" alt="calendar" width="15px">
+                            <!-- <input type="date"
+                            placeholder="Today"
+                            class="bg-transparent text-gray-700 text-lg outline-null w-full"> -->
+                            <span class="text-lg text-gray-400">Today</span>
+                        </button>
+
+                       
+                        <button class="bg-[#f3f3f3] rounded-lg px-4 py-3 max-w-[218px] w-full">
+                            <dt class="flex gap-3 items-center">
+                                <i class="fa-solid fa-clock text-sm"></i>
+                                <span class="text-lg text-gray-400">Now</span>
+                                <i class="fa-solid fa-caret-down pl-24"></i>
+                            </dt>
+                            <dd class="hidden absolute top-[330px] left-[300px] bg-white max-w-[200px] w-full max-h-[130px] rounded-lg overflow-y-scroll" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+                                <ul id="time-slot"class="flex flex-col items-start space-y-2 p-2">
+                                </ul>
+                         </dd>
+                            
+                        </button>
+
+                    </div>
+
+                    <button
+                        class="bg-white lg:bg-black text-black lg:text-white rounded-lg text-lg font-semibold px-6 py-2">See
+                        prices</button>
+
+                </div>
+
+
+
+            </div>
+
+            <iframe id="map" class="max-lg:hidden"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d439396.96874933544!2d76.86319979999999!3d30.639908699999992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m3!3e0!4m0!4m0!5e0!3m2!1sen!2sin!4v1737029652336!5m2!1sen!2sin"
+                width="600" height="600" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="lg:hidden">
+                <img src="./Ride-with-Uber.jpg" alt="portrait" width="100%">
+            </div>
+        </section>
+
+
+        <!-- Suggestions -->
+        <section class="px-8 py-12  lg:px-16 lg:py-16">
+            <h2 class="text-[1.75rem] lg:text-[2.25rem] font-bold mb-12">Suggestions</h2>
+            <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                <li class="bg-[#f3f3f3] w-full px-4 py-3 rounded-xl">
+                    <a href=# class="flex items-center justify-between">
+                        <div class="space-y-2">
+                            <h3 class="text-xl font-medium">Ride</h3>
+                            <p class="text-[0.80rem]">Go anywhere with Uber. Request a ride, hop in, and go.</p>
+                            <button class="bg-white px-3 py-2 rounded-full text-md font-medium ">Details</button>
+                        </div>
+                        <img src="./Ride.png" alt="ride" width="150px">
+                    </a>
+                </li>
+                <li class="bg-[#f3f3f3] w-full px-4 py-4 rounded-xl">
+                    <a href=# class="flex items-center justify-between">
+                        <div class="space-y-2">
+                            <h3 class="text-xl font-medium">Reserve</h3>
+                            <p class="text-[0.80rem]">Reserve your ride in advance so you can relax on the day of your
+                                trip.</p>
+                            <button class="bg-white px-3 py-2 rounded-full text-md font-medium ">Details</button>
+                        </div>
+                        <img src="./Reserve_clock.png" alt="reserve" width="130px">
+                    </a>
+                </li>
+                <li class="bg-[#f3f3f3] w-full px-4 py-4 rounded-xl">
+                    <a href=# class="flex items-center justify-between">
+                        <div class="space-y-2">
+                            <h3 class="text-xl font-medium">Courier</h3>
+                            <p class="text-[0.80rem]">Uber makes same-day item delivery easier than ever.</p>
+                            <button class="bg-white px-3 py-2 rounded-full text-md font-medium ">Details</button>
+                        </div>
+                        <img src="./Courier (1).png" alt="courier" width="130px">
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+
+        <!-- Log in -->
+        <section class="px-8 py-12 lg:px-16 lg:py-16">
+            <div class="flex flex-col lg:flex-row gap-6 lg:items-center justify-between">
+                <div class="space-y-6 lg:max-w-[450px] w-full">
+                    <h2 class="text-[2.25rem] md:text-[2.75rem] lg:text-[3.25rem] leading-tight font-bold">Log in to see
+                        your recent
+                        activity</h2>
+                    <p class="text-lg text-gray-800 ">View past trips, tailored suggestions, support resources, and
+                        more.</p>
+                    <div class="flex flex-col md:flex-row lg:flex-col gap-4">
+                        <button class="bg-black text-white px-6 py-3  max-w-[300px] w-full rounded-lg">
+                            <a href="#" class="text-base font-semibold whitespace-nowrap">Log in to your account</a>
+                        </button>
+                        <div class="flex flex-col space-y-1 ">
+                            <a href="#"
+                                class="group text-lg font-normal text-gray-800 whitespace-nowrap md:pt-2 lg:pt-0">Don't
+                                have an Uber account? Signup
+                                <div class="h-[1px] max-w-[300px] bg-[#cbcbcb] relative overflow-hidden">
+                                    <div
+                                        class="absolute top-0 left-0 h-full w-full scale-x-0 group-hover:bg-black scale-x-100 origin-left transition-transform duration-100 ease-linear ">
+                                    </div>
+                                </div>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+                <img src="./Airport.jpg" alt="airport" class="w-full lg:w-[500px] rounded-lg">
+            </div>
+        </section>
+
+        <!-- Drive -->
+        <section class="px-8 py-12 lg:px-16 lg:py-16">
+            <div class="flex flex-col lg:flex-row gap-6 lg:items-center justify-between">
+                <div class="lg:order-2 space-y-6 lg:max-w-[450px] w-full">
+                    <h2 class="text-[2.25rem] md:text-[2.75rem] lg:text-[3.25rem] leading-tight font-bold">Drive when
+                        you want, make what you need</h2>
+                    <p class="text-lg text-gray-800 ">Make money on your schedule with deliveries or rides—or both. You
+                        can use your own car or choose a rental through Uber.</p>
+                    <div class="flex flex-col md:flex-row lg:flex-row gap-4 md:items-center">
+                        <button class="bg-black text-white px-6 py-3 max-w-[200px] rounded-lg">
+                            <a href="#" class="text-base font-semibold whitespace-nowrap">Get Started</a>
+                        </button>
+                        <div class="flex flex-col space-y-1 ">
+                            <a href="#"
+                                class="group text-lg font-normal text-gray-800 whitespace-nowrap md:pt-4 lg:pt-0">Already
+                                have an account? Sign in
+                                <div class="h-[1px] max-w-[300px] bg-[#cbcbcb] relative overflow-hidden">
+                                    <div
+                                        class="absolute top-0 left-0 h-full w-full scale-x-0 group-hover:bg-black scale-x-100 origin-left transition-transform duration-100 ease-linear ">
+                                    </div>
+                                </div>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+                <img src="./Drive.jpg" alt="drive" class="lg:order-1 w-full lg:w-[540px] lg:h-[540px] rounded-lg">
+            </div>
+        </section>
+
+        <!-- Uber -->
+        <section class="px-8 py-12 lg:px-16 lg:py-16">
+            <div class="flex flex-col lg:flex-row gap-6 lg:items-center justify-between">
+                <div class="space-y-6 lg:max-w-[450px] w-full">
+                    <h2 class="text-[2.25rem] md:text-[2.75rem] lg:text-[3.25rem] leading-tight font-bold">The Uber you
+                        know, reimagined for business</h2>
+                    <p class="text-lg text-gray-800 ">Uber for Business is a platform for managing global rides and
+                        meals, and local deliveries, for companies of any size.</p>
+                    <div class="flex flex-col md:flex-row lg:flex-row gap-4 md:items-center">
+                        <button class="bg-black text-white px-6 py-3 max-w-[200px] rounded-lg">
+                            <a href="#" class="text-base font-semibold whitespace-nowrap">Get Started</a>
+                        </button>
+                        <div class="flex flex-col space-y-1 ">
+                            <a href="#"
+                                class="group text-lg font-normal text-gray-800 whitespace-nowrap md:pt-4 lg:pt-0">Check
+                                out our solutions
+                                <div class="h-[1px] max-w-[200px] bg-[#cbcbcb] relative overflow-hidden">
+                                    <div
+                                        class="absolute top-0 left-0 h-full w-full scale-x-0 group-hover:bg-black scale-x-100 origin-left transition-transform duration-100 ease-linear ">
+                                    </div>
+                                </div>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+                <img src="./Uber.jpg" alt="uber" class="w-full lg:w-[540px] lg:h-[540px] rounded-lg">
+            </div>
+        </section>
+
+        <!-- Make money -->
+        <section class="px-8 py-12 lg:px-16 lg:py-16">
+            <div class="flex flex-col lg:flex-row gap-6 lg:items-center justify-between">
+                <div class="lg:order-2 space-y-6 lg:max-w-[450px] w-full">
+                    <h2 class="text-[2.25rem] leading-tight font-bold">Make money by renting out your car</h2>
+                    <p class="text-lg text-gray-800 ">Connect with thousands of drivers and earn more per week with
+                        Uber’s free fleet management tools.</p>
+                    <div class="flex flex-col md:flex-row lg:flex-row gap-4 md:items-center">
+                        <button class="bg-black text-white px-6 py-3 max-w-[200px] rounded-lg">
+                            <a href="#" class="text-base font-semibold whitespace-nowrap">Get Started</a>
+                        </button>
+                    </div>
+                </div>
+                <img src="./Make money.jpg" alt="makeMoney"
+                    class="lg:order-1 w-full lg:w-[540px] lg:h-[540px] rounded-lg">
+            </div>
+        </section>
+
+        <!-- QR -->
+        <section class="bg-[#f6f6f6] px-8 py-12 lg:px-16 lg:py-16">
+            <h2 class="text-[2.50rem] leading-tight 
+                font-bold mb-10">It's easier in the apps</h2>
+            <ul class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <li class="bg-white p-6 group">
+                    <a href=# class="flex items-center justify-between ">
+                        <div class="flex items-center gap-4">
+                            <img class="max-lg:hidden" src="./QR1.png" alt="QR1" width="150px" height="150px">
+                            <img class="lg:hidden" src="./QR-Uber.jpg" alt="QR-Uber" width="84px" height="84px">
+                            <div>
+                                <h2 class="text-3xl font-bold">Download the Uber app</h2>
+                                <p class="max-lg:hidden text-lg text-gray-700">Scan to download</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-arrow-right text-xl font-bold"></i>
+
+                    </a>
+                </li>
+                <li class="bg-white p-6 group">
+                    <a href=# class="flex items-center justify-between ">
+                        <div class="flex items-center gap-4">
+                            <img class="max-lg:hidden" src="./QR2.jpg" alt="QR2" width="150px" height="150px">
+                            <img class="lg:hidden" src="./QR-Uber2.jpg" alt="QR-Uber" width="84px" height="84px">
+                            <div>
+                                <h2 class="text-3xl font-bold">Download the Driver app</h2>
+                                <p class="max-lg:hidden text-lg text-gray-700">Scan to download</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-arrow-right text-xl font-bold"></i>
+
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </main>
+    <footer class="bg-black text-white px-8 py-12  lg:px-16 lg:py-20 ">
+        <ul class="space-y-8 mb-10">
+            <li>
+                <a href="#" class="text-[1.75rem] font-normal mb-8 ">Uber</a>
+            </li>
+            <li>
+                <a class="group">
+                    <p class="text-lg mb-10">Visit Help Center</p>
+                    <div class="h-[1px] max-w-[150px] bg-black relative overflow-hidden">
+                        <div class="absolute top-0 left-0 h-full w-full  group-hover:bg-white">
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+        <div class="grid grid-cols-1 gap-12 md:grid-cols-2  lg:grid-cols-4 mb-12">
+            <!-- Company -->
+            <ul class="space-y-4">
+                <h3 class="text-xl font-medium">Company</h3>
+                <li class="text-[0.90rem] hover:text-gray-400">
+                    <a href="#">About us</a>
+                </li>
+                <li class="text-[0.90rem] hover:text-gray-400">
+                    <a href="#">Our offerings</a>
+                </li>
+                <li class="text-[0.90rem] hover:text-gray-400">
+                    <a href="#">Newsroom</a>
+                </li>
+                <li class="text-[0.90rem] hover:text-gray-400">
+                    <a href="#">Investors</a>
+                </li>
+                <li class="text-[0.90rem] hover:text-gray-400">
+                    <a href="#">Blog</a>
+                </li>
+                <li class="text-[0.90rem] hover:text-gray-400">
+                    <a href="#">Careers</a>
+                </li>
+            </ul>
+
+            <!-- Products -->
+            <ul class="space-y-4">
+                <h3 class="text-xl font-medium">Products</h3>
+                <li class="text-[0.90rem] hover:text-gray-400">
+                    <a href="#">Ride</a>
+                </li>
+                <li class="text-[0.90rem] hover:text-gray-400">
+                    <a href="#">Drive</a>
+                </li>
+                <li class="text-[0.90rem] hover:text-gray-400">
+                    <a href="#">Deliver</a>
+                </li>
+                <li class="text-[0.90rem] hover:text-gray-400">
+                    <a href="#">Eat</a>
+                </li>
+                <li class="text-[0.90rem] hover:text-gray-400">
+                    <a href="#">Uber for Business</a>
+                </li>
+                <li class="text-[0.90rem] hover:text-gray-400">
+                    <a href="#">Uber Freight</a>
+                </li>
+                <li class="text-[0.90rem] hover:text-gray-400">
+                    <a href="#">Gift cards</a>
+                </li>
+
+            </ul>
+
+            <!-- Global citizenship -->
+            <ul class="space-y-4">
+                <h3 class="text-xl font-medium">Global citizenship</h3>
+                <li class="text-[0.90rem] hover:text-gray-400">
+                    <a href="#">Safety</a>
+                </li>
+                <li class="text-[0.90rem] hover:text-gray-400">
+                    <a href="#">Diversity and inclusion</a>
+                </li>
+                <li class="text-[0.90rem] hover:text-gray-400">
+                    <a href="#">Sustainability</a>
+                </li>
+            </ul>
+
+            <!-- Travel -->
+            <ul class="space-y-4">
+                <h3 class="text-xl font-medium">Travel</h3>
+                <li class="text-[0.90rem] hover:text-gray-400">
+                    <a href="#">Reserve</a>
+                </li>
+                <li class="text-[0.90rem] hover:text-gray-400">
+                    <a href="#">Airports</a>
+                </li>
+                <li class="text-[0.90rem] hover:text-gray-400">
+                    <a href="#">Cities</a>
+                </li>
+            </ul>
+
+        </div>
+        <div class="flex flex-col lg:flex-row gap-6 lg:items-center justify-between mb-12">
+            <!-- Left-Footer -->
+            <ul class="flex gap-4 items-center justify-between">
+                <li id="fb" class="group">
+                    <a href="#" class="p-[14px] rounded-lg group-hover:bg-[#282828]">
+                        <i class="fa-brands fa-square-facebook text-lg"></i>
+                    </a>
+                </li>
+                <li id="twitter" class="group">
+                    <a href="#" class="p-[14px] rounded-lg group-hover:bg-[#282828]">
+                        <i class="fa-brands fa-x-twitter text-lg"></i>
+                    </a>
+                </li>
+                <li id="youtube" class="group">
+                    <a href="#" class="p-[14px] rounded-lg group-hover:bg-[#282828]">
+                        <i class="fa-brands fa-youtube text-lg"></i>
+                    </a>
+                </li>
+                <li id="linkedin" class="group">
+                    <a href="#" class="p-[14px] rounded-lg group-hover:bg-[#282828]">
+                        <i class="fa-brands fa-linkedin text-lg"></i>
+                    </a>
+                </li>
+                <li id="instagram" class="group">
+                    <a href="#" class="p-[14px] rounded-lg group-hover:bg-[#282828]">
+                        <i class="fa-brands fa-instagram text-lg"></i>
+                    </a>
+                </li>
+            </ul>
+            <!-- Right-Footer -->
+            <div class="flex flex-col lg:flex-row gap-2 lg:items-center">
+                <button class="flex gap-2 items-center rounded-lg px-3 py-2 hover:bg-[#282828]">
+                    <i class="fa-sharp fa-solid fa-globe"></i>
+                    <span class="text-md font-medium">English</span>
+                </button>
+                <button class="flex gap-2 items-center rounded-lg px-3 py-2 hover:bg-[#282828]">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span class="text-md font-medium">Bhopal</span>
+                </button>
+            </div>
+        </div>
+        <!-- Downloads -->
+        <ul class="flex gap-2 items-center mb-10">
+            <li>
+                <a href="#"
+                    class="border border-gray-400 flex gap-2 items-center justify-between w-fit  px-2 py-[2px] rounded-lg">
+                    <img src="./GooglePlay.png" alt="googlePlay" width="30px">
+                    <div>
+                        <small class="text-xs text-gray-300">GET IT ON</small>
+                        <h3 class="text-md">Google Play</h3>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#"
+                    class="border border-gray-400 flex gap-3 items-center justify-between w-fit  px-2 py-[2px] rounded-lg">
+                    <i class="fa-brands fa-apple text-3xl"></i>
+                    <div>
+                        <small class="text-xs text-gray-300">Download on the</small>
+                        <h3 class="text-lg">Apple Store</h3>
+                    </div>
+                </a>
+            </li>
+        </ul>
+        <div class="flex flex-col lg:flex-row gap-6 lg:items-center justify-between">
+            <div>
+                <small class="text-xs text-gray-300">&copy; 2025 Uber Technologies Inc.</small>
+            </div>
+            <ul class="flex gap-10 items-center">
+                <li class="text-xs text-gray-300 hover:text-gray-400">
+                    <a href="#">Privacy</a>
+                </li>
+                <li class="text-xs text-gray-300 hover:text-gray-400">
+                    <a href="#">Accessibility</a>
+                </li>
+                <li class="text-xs text-gray-300 hover:text-gray-400">
+                    <a href="#">Terms</a>
+                </li>
+            </ul>
+        </div>
+
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
