@@ -1,3 +1,25 @@
+const navDialog = document.querySelector('#navDialog');
+function handleMenu(){
+    const body = document.querySelector('body');
+    navDialog.classList.toggle('hidden');
+    body.classList.toggle('overflow-hidden');
+}
+const aboutBtnNav = document.querySelector('#aboutBtnNav');
+aboutBtnNav.addEventListener('click', () => {
+    const aboutDivNav = document.querySelector('#aboutDivNav');
+    aboutDivNav.classList.toggle('hidden');
+})
+const exploreBtnNav = document.querySelector('#exploreBtnNav');
+exploreBtnNav.addEventListener('click', () => {
+    const citiesBtnNav = document.querySelector('#citiesBtnNav');
+    citiesBtnNav.classList.toggle('hidden');
+
+})
+citiesBtnNav.addEventListener('click', () => {
+    const nearByCitiesNav = document.querySelector('#nearByCitiesNav');
+    // console.log(nearByCitiesNav);
+    nearByCitiesNav.classList.toggle('hidden');
+})
 const aboutBtn = document.getElementById('aboutBtn');
 aboutBtn.addEventListener('click', () => {
     const aboutDiv = document.getElementById('aboutDiv');
@@ -26,6 +48,7 @@ const dtElement = document.querySelector('dt');
 dtElement.addEventListener('click', () => {
     generateTimeSlots();
     const ddElement = document.querySelector('dd');
+    
     ddElement.classList.toggle('hidden');
 })
 

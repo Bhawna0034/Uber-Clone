@@ -32,7 +32,7 @@
                     <button>
                         <div id="aboutBtn" class="flex gap-3 items-center rounded-full px-3 py-2 hover:bg-[#282828]">
                             <span class="font-medium text-sm">About</span>
-                            <i class="fa-solid fa-chevron-down text-xs font-bold  transition"></i>
+                            <i class="fa-solid fa-chevron-up text-xs font-bold -rotate-180 transition"></i>
                         </div>
                     </button>
                 </div>
@@ -45,117 +45,202 @@
                 <a href="#" class="hidden lg:text-sm font-medium rounded-full px-3 py-2 hover:bg-[#282828]">Help</a>
                 <button class="text-sm font-medium rounded-full px-3 py-2 hover:bg-[#282828]">Log in</button>
                 <button class="bg-white text-black text-sm font-medium px-3 py-2 rounded-full">Sign up</button>
+
+                <button id="menuBar" onclick="handleMenu()" class="lg:hidden">
+                    <img src="./Menu Bar.jpg" alt="Menu bar" width="30px">
+                </button>
+
             </div>
-        </div>
+
+            <!-- Nav Dialog -->
+            <div id="navDialog" class="hidden fixed bg-white z-10 md:hidden inset-0  overflow-y-auto">
+                <div id="navBar" class="bg-black flex gap-2 items-center justify-between px-6 py-3">
+                    <a href="#" class="text-2xl cursor-pointer">Uber</a>
+                    <div class="flex gap-3 items-center">
+                        <button id="logIn" class="text-sm font-medium rounded-full px-3 py-2 hover:bg-[#282828]">Log
+                            in</button>
+                        <button id="signUp" class="bg-white text-black text-sm font-medium px-3 py-2 rounded-full">Sign
+                            up</button>
+                        <button id="menuBar" onclick="handleMenu()" class="lg:hidden cursor-pointer">
+                            <i class="fa-solid fa-xmark "></i>
+                        </button>
+                    </div>
+
+                </div>
+                <div class="bg-white flex flex-col items-start gap-y-6 px-6 py-3 h-full">
+                    <a href="#" class="text-[2rem] text-black font-bold opacity-90 hover:opacity-70">Ride</a>
+                    <a href="#" class="text-[2rem] text-black font-bold opacity-90 hover:opacity-70">Drive</a>
+                    <a href="#" class="text-[2rem] text-black font-bold opacity-90 hover:opacity-70">Business</a>
+                    <button id="aboutBtnNav" class="w-full">
+                        <div class="flex gap-12 items-center justify-between">
+                            <span class="text-[2rem] text-black font-bold opacity-90">About</span>
+                            <i class="fa-solid fa-chevron-down text-black font-bold"></i>
+                        </div>
+                    </button>
+                    <div id="aboutDivNav"class="hidden flex flex-col items-start gap-y-6 pl-6 w-full">
+                            <a href="#" class="text-[15px] text-[#4b4b4b] opacity-70 hover:opacity-90">About us</a>
+                            <a href="#" class="text-[15px] text-[#4b4b4b] opacity-70 hover:opacity-90">Our offerings</a>
+                            <a href="#" class="text-[15px] text-[#4b4b4b] opacity-70 hover:opacity-90">How Uber
+                                works</a>
+                            <a href="#" class="text-[15px] text-[#4b4b4b] opacity-70 hover:opacity-90">Impact</a>
+                            <a href="#" class="text-[15px] text-[#4b4b4b] opacity-70 hover:opacity-90">Diversity,
+                                equity, and inclusion</a>
+                            <a href="#"
+                                class="text-[15px] text-[#4b4b4b] opacity-70 hover:opacity-90">Sustainability</a>
+                            <button id="exploreBtnNav" class="w-full">
+                                <div class="flex items-center justify-between w-full">
+                                    <span class="text-[15px] text-[#4b4b4b] opacity-70 hover:opacity-90">Explore</span>
+                                    <i class="fa-solid fa-chevron-down text-black font-bold"></i>
+                                </div>
+                            </button>
+                            <button id="citiesBtnNav" class="hidden w-full pl-10">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-[15px] text-[#4b4b4b] opacity-70 hover:opacity-90">Cities</span>
+                                    <i class="fa-solid fa-chevron-down text-black font-bold"></i>
+                                </div>
+                            </button>
+                            <div id="nearByCitiesNav" class="hidden flex flex-col gap-y-6 pl-16 w-full">
+                                <a href="#" class="text-[15px] text-[#4b4b4b] opacity-70 ">Getting around New Delhi</a>
+                                <a href="#" class="text-[15px] text-[#4b4b4b] opacity-70 ">Getting around Hyderabad</a>
+                                <a href="#" class="text-[15px] text-[#4b4b4b] opacity-70 ">Getting around Chennai</a>
+                                <a href="#" class="text-[15px] text-[#4b4b4b] opacity-70 ">Getting around Kolkata</a>
+                                <a href="#" class="text-[15px] text-[#4b4b4b] opacity-70 ">Getting around Jaipur</a>
+                                <a href="#" class="text-[15px] text-[#4b4b4b] opacity-70 ">Getting around Pune City</a>
+                                <a href="#" class="text-[15px] text-[#4b4b4b] opacity-70 ">Getting around Mumbai</a>
+                                <a href="#" class="text-[15px] text-[#4b4b4b] opacity-70 ">Getting around Lucknow</a>
+                                <a href="#" class="text-[15px] text-[#4b4b4b] opacity-70 ">Getting around Thiruvananthapuram</a>
+                                <a href="#" class="text-[15px] text-[#4b4b4b] opacity-70 ">Getting around Bhubaneswar</a>
+                            </div>
+                            <a href="#" class="text-[15px] text-[#4b4b4b] opacity-70 hover:opacity-90">Newsroom</a>
+                            <a href="#" class="text-[15px] text-[#4b4b4b] opacity-70 hover:opacity-90">Investor
+                                relations</a>
+                            <a href="#" class="text-[15px] text-[#4b4b4b] opacity-70 hover:opacity-90">Autonomous</a>
+                            <a href="#" class="text-[15px] text-[#4b4b4b] opacity-70 hover:opacity-90">Blog</a>
+                            <a href="#" class="text-[15px] text-[#4b4b4b] opacity-70 hover:opacity-90">Careers</a>
+                        </div>
+
+                    </button>
+
+
+
+                    <a href="#" class="text-[2rem] text-black font-bold opacity-90 hover:opacity-70">Help</a>
+                    <button class="flex gap-2 items-center rounded-full px-3 py-2 text-black hover:bg-gray-100">
+                        <i class="fa-sharp fa-solid fa-globe"></i>
+                        <span class="text-sm font-medium">EN</span>
+                    </button>
+                    
+                </div>
+
+            </div>
 
     </nav>
     <main class="relative">
         <div id='aboutDiv' class="hidden absolute left-[330px] bg-white z-[9] max-w-[250px] w-full"
-        style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
-        <ul class="flex flex-col">
-            <li class="hover:bg-gray-100 w-full px-4 py-2 group">
-                <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">About us</a>
-            </li>
-            <li class="hover:bg-gray-100 w-full px-4 py-2 group">
-                <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Our
-                    offerings</a>
-            </li>
-            <li class="hover:bg-gray-100 w-full px-4 py-2 group">
-                <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">How Uber
-                    works</a>
-            </li>
-            <li class="hover:bg-gray-100 w-full px-4 py-2 group">
-                <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Impact</a>
-            </li>
-            <li class="hover:bg-gray-100 w-full px-4 py-2 group">
-                <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Diversity,
-                    equity, and inclusion</a>
-            </li>
-            <li class="hover:bg-gray-100 w-full px-4 py-2 group">
-                <a href="#"
-                    class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Sustainability</a>
-            </li>
-            <button id="exploreBtn" class="relative hover:bg-gray-100 w-full px-4 py-2 group">
-                <div class="flex items-center justify-between">
-                    <span class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Explore</span>
-                    <i class="fa-solid fa-chevron-right text-[#a0a0a0] group-hover:text-black"></i>
+            style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+            <ul class="flex flex-col">
+                <li class="hover:bg-gray-100 w-full px-4 py-2 group">
+                    <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">About us</a>
+                </li>
+                <li class="hover:bg-gray-100 w-full px-4 py-2 group">
+                    <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Our
+                        offerings</a>
+                </li>
+                <li class="hover:bg-gray-100 w-full px-4 py-2 group">
+                    <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">How Uber
+                        works</a>
+                </li>
+                <li class="hover:bg-gray-100 w-full px-4 py-2 group">
+                    <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Impact</a>
+                </li>
+                <li class="hover:bg-gray-100 w-full px-4 py-2 group">
+                    <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Diversity,
+                        equity, and inclusion</a>
+                </li>
+                <li class="hover:bg-gray-100 w-full px-4 py-2 group">
+                    <a href="#"
+                        class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Sustainability</a>
+                </li>
+                <button id="exploreBtn" class="relative hover:bg-gray-100 w-full px-4 py-2 group">
+                    <div class="flex items-center justify-between">
+                        <span class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Explore</span>
+                        <i class="fa-solid fa-chevron-right text-[#a0a0a0] group-hover:text-black"></i>
+                    </div>
+                </button>
+
+                <div id="citiesBtn"
+                    class="hidden absolute top-[240px] left-[260px] bg-white max-w-[180px] w-full rounded-lg py-3"
+                    style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+                    <div class="flex items-center justify-between hover:bg-gray-100 px-4 group">
+                        <span class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Cities</span>
+                        <i class="fa-solid fa-chevron-right text-[#a0a0a0] group-hover:text-black"></i>
+                    </div>
                 </div>
-            </button>
 
-            <div id="citiesBtn"
-                class="hidden absolute top-[240px] left-[260px] bg-white max-w-[180px] w-full rounded-lg py-3"
-                style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
-                <div class="flex items-center justify-between hover:bg-gray-100 px-4 group">
-                    <span class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Cities</span>
-                    <i class="fa-solid fa-chevron-right text-[#a0a0a0] group-hover:text-black"></i>
+                <div id="nearByCities"
+                    class="hidden absolute top-[240px] left-[445px] bg-white py-3 max-w-[400px] rounded-lg"
+                    style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+                    <ul class="flex flex-col">
+                        <li class="hover:bg-gray-100 w-full px-4 py-2 group">
+                            <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Getting
+                                around New Delhi</a>
+                        </li>
+                        <li class="hover:bg-gray-100 w-full px-4 py-2 group">
+                            <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Getting
+                                around Hyderabad</a>
+                        </li>
+                        <li class="hover:bg-gray-100 w-full px-4 py-2 group">
+                            <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Getting
+                                around Chennai</a>
+                        </li>
+                        <li class="hover:bg-gray-100 w-full px-4 py-2 group">
+                            <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Getting
+                                around Kolkata</a>
+                        </li>
+                        <li class="hover:bg-gray-100 w-full px-4 py-2 group">
+                            <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Getting
+                                around Jaipur</a>
+                        </li>
+                        <li class="hover:bg-gray-100 w-full px-4 py-2 group">
+                            <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Getting
+                                around Pune City</a>
+                        </li>
+                        <li class="hover:bg-gray-100 w-full px-4 py-2 group">
+                            <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Getting
+                                around Mumbai</a>
+                        </li>
+                        <li class="hover:bg-gray-100 w-full px-4 py-2 group">
+                            <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Getting
+                                around Lucknow</a>
+                        </li>
+                        <li class="hover:bg-gray-100 w-full px-4 py-2 group">
+                            <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Getting
+                                around Thiruvananthapuram</a>
+                        </li>
+                        <li class="hover:bg-gray-100 w-full px-4 py-2 group">
+                            <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Getting
+                                around Bhubaneswar</a>
+                        </li>
+                    </ul>
                 </div>
-            </div>
 
-            <div id="nearByCities"
-                class="hidden absolute top-[240px] left-[445px] bg-white py-3 max-w-[400px] rounded-lg"
-                style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
-                <ul class="flex flex-col">
-                    <li class="hover:bg-gray-100 w-full px-4 py-2 group">
-                        <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Getting
-                            around New Delhi</a>
-                    </li>
-                    <li class="hover:bg-gray-100 w-full px-4 py-2 group">
-                        <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Getting
-                            around Hyderabad</a>
-                    </li>
-                    <li class="hover:bg-gray-100 w-full px-4 py-2 group">
-                        <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Getting
-                            around Chennai</a>
-                    </li>
-                    <li class="hover:bg-gray-100 w-full px-4 py-2 group">
-                        <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Getting
-                            around Kolkata</a>
-                    </li>
-                    <li class="hover:bg-gray-100 w-full px-4 py-2 group">
-                        <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Getting
-                            around Jaipur</a>
-                    </li>
-                    <li class="hover:bg-gray-100 w-full px-4 py-2 group">
-                        <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Getting
-                            around Pune City</a>
-                    </li>
-                    <li class="hover:bg-gray-100 w-full px-4 py-2 group">
-                        <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Getting
-                            around Mumbai</a>
-                    </li>
-                    <li class="hover:bg-gray-100 w-full px-4 py-2 group">
-                        <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Getting
-                            around Lucknow</a>
-                    </li>
-                    <li class="hover:bg-gray-100 w-full px-4 py-2 group">
-                        <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Getting
-                            around Thiruvananthapuram</a>
-                    </li>
-                    <li class="hover:bg-gray-100 w-full px-4 py-2 group">
-                        <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Getting
-                            around Bhubaneswar</a>
-                    </li>
-                </ul>
-            </div>
-
-            <li class="hover:bg-gray-100 w-full px-4 py-2 group">
-                <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Newsroom</a>
-            </li>
-            <li class="hover:bg-gray-100 w-full px-4 py-2 group">
-                <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Investor
-                    relations</a>
-            </li>
-            <li class="hover:bg-gray-100 w-full px-4 py-2 group">
-                <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Autonomous</a>
-            </li>
-            <li class="hover:bg-gray-100 w-full px-4 py-2 group">
-                <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Blog</a>
-            </li>
-            <li class="hover:bg-gray-100 w-full px-4 py-2 group">
-                <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Careers</a>
-            </li>
-        </ul>
-    </div>
+                <li class="hover:bg-gray-100 w-full px-4 py-2 group">
+                    <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Newsroom</a>
+                </li>
+                <li class="hover:bg-gray-100 w-full px-4 py-2 group">
+                    <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Investor
+                        relations</a>
+                </li>
+                <li class="hover:bg-gray-100 w-full px-4 py-2 group">
+                    <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Autonomous</a>
+                </li>
+                <li class="hover:bg-gray-100 w-full px-4 py-2 group">
+                    <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Blog</a>
+                </li>
+                <li class="hover:bg-gray-100 w-full px-4 py-2 group">
+                    <a href="#" class="text-md text-[#a0a0a0] whitespace-nowrap group-hover:text-black">Careers</a>
+                </li>
+            </ul>
+        </div>
         <!-- Home -->
         <section id="home"
             class="relative bg-black lg:bg-white flex flex-col lg:flex-row gap-20 justify-between px-8 py-12  lg:px-16 lg:py-16 z-1">
@@ -192,7 +277,7 @@
                             class="flex-grow bg-transparent text-lg outline-null text-gray-900">
                     </div>
                     <div id="calendar" class="hidden absolute top-[120px] left-0 z-2 auto-jsCalendar "></div>
-                   
+
 
                     <div class="hidden lg:flex gap-4 items-center max-w-[450px]">
                         <button id="todayBtn"
@@ -204,18 +289,19 @@
                             <span class="text-lg text-gray-400">Today</span>
                         </button>
 
-                       
+
                         <button class="bg-[#f3f3f3] rounded-lg px-4 py-3 max-w-[218px] w-full">
                             <dt class="flex gap-3 items-center">
                                 <i class="fa-solid fa-clock text-sm"></i>
                                 <span class="text-lg text-gray-400">Now</span>
                                 <i class="fa-solid fa-caret-down pl-24"></i>
                             </dt>
-                            <dd class="hidden absolute top-[330px] left-[300px] bg-white max-w-[200px] w-full max-h-[130px] rounded-lg overflow-y-scroll" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
-                                <ul id="time-slot"class="flex flex-col items-start space-y-2 p-2">
+                            <dd class="hidden absolute top-[330px] left-[300px] bg-white max-w-[200px] w-full max-h-[130px] rounded-lg overflow-y-scroll"
+                                style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+                                <ul id="time-slot" class="flex flex-col items-start space-y-2 p-2">
                                 </ul>
-                         </dd>
-                            
+                            </dd>
+
                         </button>
 
                     </div>
